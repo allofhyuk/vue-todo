@@ -45,6 +45,10 @@ export default {
       store.commit('closeModal');  
     }
 
+    const closeModal = () => {
+      store.commit('closeModal');
+    }
+
     // each menu trigger func
     const menuBtnHandler = (menuName) => {
       if(menuName.includes('전체')) {
@@ -61,6 +65,7 @@ export default {
     return {
       modalStatus,
       deleteStatus,
+      closeModal,
       removeAllTodo,
       removeDoingTodo,
       removeDoneTodo,
@@ -74,6 +79,11 @@ export default {
 <template>  
   <div v-if="modalStatus.open" class="modal__wrapper">
     <div class="menu_alert__container">
+      <button class="modal__close__btn" @click="closeModal()">
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+      </button>
       <button class="each_menu__btn" v-for="(menu, index) of modalStatus.subMenuList" :key="index" @click="menuBtnHandler(menu)">
         {{ menu }}
       </button>
@@ -89,6 +99,12 @@ export default {
     left: 0;
     width: 100%;
     height: 100vh;
+    z-index: 5;    
+  }
+  .modal__close__btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     z-index: 5;    
   }
   .menu_alert__container {

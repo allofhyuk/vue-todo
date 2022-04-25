@@ -55,8 +55,7 @@ export default {
       state.todoList.filter(todo => todo.id === payload.id)[0].text = payload.text;
       localStorage.setItem('todo', JSON.stringify(state.todoList));
     },
-    removeTodo: (state, payload) => {
-      console.log('removeTodo-payload: ', payload);
+    removeTodo: (state, payload) => {      
       state.todoList = state.todoList.filter(todo => todo.id !== payload);
       localStorage.setItem('todo', JSON.stringify(state.todoList));
     },

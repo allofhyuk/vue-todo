@@ -24,7 +24,6 @@ export default {
     },
     unshownToast: (state) => {
       state.toast.shift();
-      console.log(state.toast);
     },
     openAlert: (state, payload) => {
       state.alert.open = true;
@@ -39,7 +38,6 @@ export default {
       state.alert.msg = "";
     },
     openModal: (state, payload) => {
-      console.log('openModal ', payload);
       state.modal.open = true;
       state.modal.subMenuList = payload;      
     },

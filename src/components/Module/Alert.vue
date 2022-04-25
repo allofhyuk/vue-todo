@@ -69,6 +69,9 @@
   .alert__container {
     @include alertContainer(50rem, 24rem, column);
   }
+  .alert__msg {
+    font-size: 1.8rem;
+  }
   .alert__btn__group {
     margin-top: 5rem;
   }
