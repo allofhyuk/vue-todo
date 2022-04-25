@@ -1,0 +1,56 @@
+@import './variable/color.scss';
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;  
+  max-width: 1280px;
+  height: 100%;
+  // min-height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+textarea {
+  border: 1px solid $c-gray1;  
+}
+
+/* semantic color variables for this project */
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: $c-black;
+  background: $c-white;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+  border: $c-black-soft;
+  background: #fff;
+}

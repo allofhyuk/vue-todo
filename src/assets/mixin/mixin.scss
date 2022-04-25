@@ -1,0 +1,20 @@
+@mixin alertContainer($width, $height, $direction) {
+  width: $width;
+  height: $height;
+  position: fixed;
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+  top: calc(50% - $height/2);
+  left: calc(50% - $width/2);
+  border: 1px solid $c-gray1;
+  border-radius: 0.5rem;
+  background: #fff;
+  z-index: 20;
+  font-size: 1.5rem;
+
+  -webkit-box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
+  -moz-box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
+  box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
+}
