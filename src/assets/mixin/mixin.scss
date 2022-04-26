@@ -18,3 +18,65 @@
   -moz-box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
   box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
 }
+/*
+  location
+  1. top-center
+  2. bottom-center
+  3. top-left
+  4. bottom-left
+  5. top-right
+  6. bottom-right
+*/
+@mixin toastLocation ($width, $height, $margin, $location) {
+  position: fixed;
+  display: flex;
+  @if $location == 'top-center' {  
+    top: $margin;
+    left: calc(50% - $width/2);  
+    flex-direction: column;  
+  }
+  @else if $location == 'bottom-center' {   
+    bottom: $margin;
+    left: calc(50% - $width/2);    
+    flex-direction: column-reverse;    
+  }
+  @else if $location == 'top-left' {   
+    top: $margin;
+    left: $margin;
+    flex-direction: column;      
+  }
+  @else if $location == 'bottom-left' {   
+    bottom: $margin;
+    left: $margin;
+    flex-direction: column-reverse;      
+  }
+  @else if $location == 'top-right' {   
+    top: $margin;
+    right: $margin;
+    flex-direction: column;      
+  }
+  @else if $location == 'bottom-right' {   
+    bottom: $margin;
+    right: $margin;
+    flex-direction: column-reverse;      
+  }
+
+}
+@mixin toastStyle ($width, $height, $bgColor, $fontSize) {
+  font-size: $fontSize; 
+  box-sizing: border-box;   
+  letter-spacing: 1px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: $width;
+  height: $height;
+  min-width: 200px;
+  min-height: 50px;
+  background: $bgColor;
+  color: $c-black-mute;   
+  -webkit-box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
+  -moz-box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
+  box-shadow: 3px 10px 29px -17px rgba(102,102,102,0.6);
+}
