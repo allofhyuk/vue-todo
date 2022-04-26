@@ -14,7 +14,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/base.scss"; @import "@/assets/animation.scss"; @import "@/assets/variable/color.scss"; @import "@/assets/mixin/mixin.scss";`
+        additionalData: `@import "@/assets/icon/icon.scss"; @import "@/assets/base.scss"; @import "@/assets/animation.scss"; @import "@/assets/variable/color.scss"; @import "@/assets/mixin/mixin.scss";`
       }
     }
   }
