@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <div>   
-    <Navigation textLogo="Title" />    
+    <Navigation textLogo="Simple Todo" />    
     
     <RouterView />
   </div>

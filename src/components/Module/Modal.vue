@@ -78,7 +78,7 @@ export default {
 
 <template>  
   <div v-if="modalStatus.open" class="modal__wrapper">
-    <div class="menu_alert__container">
+    <div class="modal__container">
       <button class="modal__close__btn" @click="closeModal()">
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
           <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
@@ -107,7 +107,7 @@ export default {
     right: 1rem;
     z-index: 5;    
   }
-  .menu_alert__container {
+  .modal__container {
     @include alertContainer(50rem, 30rem, 'row');
     @include fade-in();
   }

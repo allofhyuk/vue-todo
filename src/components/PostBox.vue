@@ -181,7 +181,10 @@ export default {
     z-index: 10;
     border: 1px solid #fff;
   }
-
+  .todo__checkbox:checked + p {
+    text-decoration: line-through;
+    text-decoration-color: $c-black-soft;
+  }
   .todo__edit {
     width: 60%;
     height: 3rem;

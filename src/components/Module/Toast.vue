@@ -18,8 +18,8 @@
 <template>  
   <div class="container">
     <transition-group name="fade">
-    <div class="alert__container" v-for="(noti, index) of toast" :key="index">
-      <div v-if="noti.open" class="each__alert" :class="noti.type">
+    <div class="toast__container" v-for="(noti, index) of toast" :key="index">
+      <div v-if="noti.open" class="each__toast" :class="noti.type">
         <svg v-if="noti.type === 'warning'" class="warning__btn" style="width:24px;height:24px" viewBox="0 0 24 24">
           <path fill="currentColor" d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z" />
         </svg>
@@ -41,10 +41,10 @@
     display: flex;
     flex-direction: column;
   }
-  .alert__container {
+  .toast__container {
     margin-top: 2rem;
   }
-  .each__alert {
+  .each__toast {
     font-size: 1.8rem; 
     box-sizing: border-box;   
     letter-spacing: 1px; 
