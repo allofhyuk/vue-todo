@@ -1,17 +1,5 @@
-// animation variable
-@mixin fade-in () {  
-  animation: fade-in 0.5s ease-in-out;
-}
-
-@mixin fade-out() {
-  animation: fade-out 0.5s ease-in-out;
-}
-
-@mixin slideDown() {
-  animation: slide-down 0.5s ease-in-out;
-}
-
 // Opacity animation
+$fade-in : fade-in;
 @keyframes fade-in {
   0%  {
     opacity: 0;
@@ -21,6 +9,7 @@
   }
 }
 
+$fade-out: fade-out;
 @keyframes fade-out {
   0%  {
     transform: translateY(0);
@@ -33,7 +22,8 @@
 }
 
 // Position animation
-@keyframes slideDown {
+$slide-down: slide-down;
+@keyframes slide-down {
   0% {
     transform: translateY(-5px);
   }
@@ -48,7 +38,7 @@
   @keyframes drawLine {
     0% {
       opacity: 0.5;
-      border-bottom-width: 0%;
+      border-bottom-width: 0;
     }
     100% {
       opacity: 1;
