@@ -1,3 +1,17 @@
+<template>  
+  <div v-if="modalStatus.open" class="modal">
+    <div class="modal__container">
+      <button class="modal__close__btn" @click="closeModal()">
+        <span class="icon-cross"></span>
+      </button>
+      <button class="modal__each_menu" v-for="(menu, index) of modalStatus.subMenuList" :key="index" @click="menuBtnHandler(menu)">
+        {{ menu }}
+      </button>
+    </div>
+    <Alert :deleteStatus="deleteStatus" ></Alert>  
+  </div>
+</template>
+
 <script>
 import { ref, computed } from 'vue'
 import { onMounted } from '@vue/runtime-core'
@@ -76,49 +90,40 @@ export default {
 }
 </script>
 
-<template>  
-  <div v-if="modalStatus.open" class="modal__wrapper">
-    <div class="modal__container">
-      <button class="modal__close__btn" @click="closeModal()">
-        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-        </svg>
-      </button>
-      <button class="each_menu__btn" v-for="(menu, index) of modalStatus.subMenuList" :key="index" @click="menuBtnHandler(menu)">
-        {{ menu }}
-      </button>
-    </div>
-    <Alert :deleteStatus="deleteStatus" ></Alert>  
-  </div>
-</template>
-
 <style scoped lang="scss">
-  .modal__wrapper {
+  .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 5;    
-  }
-  .modal__close__btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 5;    
-  }
-  .modal__container {
-    @include alertContainer(50rem, 30rem, 'row');
-    @include fade-in();
-  }
-  .each_menu__btn {
-    border-bottom: 1px solid $c-gray1;
-    padding: 1rem;
-    margin: 0 1.5rem;
-    transition: color 0.6s;
-  }
-  .each_menu__btn:hover {
-    color: $c-red1;
-    border-bottom: 1px solid $c-red1;
+    z-index: 5;
+    &__container {
+      @include alertContainer(50rem, 30rem, 'row');
+      animation: $fade-in 0.6s;
+    }
+    &__close__btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1rem;
+      z-index: 5;        
+      .icon-cross {
+        color: $c-gray1;
+        transition: color 0.6s;
+        &:hover {
+          color: $c-red1;
+        }
+      }
+    }    
+    &__each_menu {
+      border-bottom: 1px solid $c-gray1;
+      padding: 1rem;
+      margin: 0 1.5rem;
+      transition: color 0.6s;
+      &:hover {
+        color: $c-red1;
+        border-bottom: 1px solid $c-red1;
+      }
+    }
   }
 </style>

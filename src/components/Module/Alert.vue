@@ -1,3 +1,15 @@
+<template>
+  <transition name="fade">
+    <div v-if="alert.open" class="alert"  @keypress.enter="confirmDelete(todoId)"  @keypress.esc="closeAlert" >
+      <p class="alert__msg">{{ alert.msg }}</p>
+      <div class="alert__btn">
+        <button class="alert__btn--cancel" @click="closeAlert">취소</button>
+        <button class="alert__btn--ok" @click="confirmDelete(deleteStatus)" @keyup.enter="confirmDelete(todoId)">확인</button>
+      </div>
+    </div>
+  </transition>
+</template>
+
 <script>
   import { useStore } from "vuex";
 
@@ -53,44 +65,32 @@
   }
 </script>
 
-<template>
-  <transition name="fade">
-    <div v-if="alert.open" class="alert__container"  @keypress.enter="confirmDelete(todoId)"  @keypress.esc="closeAlert" >
-      <p class="alert__msg">{{ alert.msg }}</p>
-      <div class="alert__btn__group">
-        <button class="alert__btn--cancel" @click="closeAlert">취소</button>
-        <button class="alert__btn--ok" @click="confirmDelete(deleteStatus)" @keyup.enter="confirmDelete(todoId)">확인</button>
-      </div>
-    </div>
-  </transition>
-</template>
-
 <style scoped lang="scss">
-  .alert__container {
-    @include alertContainer(50rem, 24rem, column);
-  }
-  .alert__msg {
-    font-size: 1.8rem;
-  }
-  .alert__btn__group {
-    margin-top: 5rem;
-  }
-  .alert__btn--cancel { 
-    margin: 0 1rem;
-    border: 1px solid $c-gray1;
-    border-radius: 0.5rem;
-    padding: 1rem 2rem;
-  }
-  .alert__btn--ok {
-    margin: 0 1rem;
-    border: 1px solid $c-gray1;
-    border-radius: 0.5rem;
-    padding: 1rem 2rem;
-  }
   .fade-enter-active {
-    @include fade-in();
+    animation: $fade-in 0.6s;    
   }
   .fade-leave-active  {
-    @include fade-out();
+    animation: $fade-out 0.6s;    
+  }
+  .alert {
+    @include alertContainer(50rem, 24rem, column);
+    &__msg {
+      font-size: 1.8rem;
+    }
+    &__btn {
+      margin-top: 5rem;  
+      &--cancel {
+        margin: 0 1rem;
+        border: 1px solid $c-gray1;
+        border-radius: 0.5rem;
+        padding: 1rem 2rem;
+      }
+      &--ok {
+        margin: 0 1rem;
+        border: 1px solid $c-gray1;
+        border-radius: 0.5rem;
+        padding: 1rem 2rem;
+      }
+    }
   }
 </style>
